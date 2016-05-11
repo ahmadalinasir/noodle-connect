@@ -1,0 +1,75 @@
+buildscript {
+    repositories {
+        mavenCentral()
+
+        maven {
+            url 'http://repo.spring.io/milestone'
+        }
+    }
+    dependencies {
+        // replace with the current version of the android-apt plugin
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+    }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    jcenter()
+}
+
+
+apply plugin: 'com.android.library'
+apply plugin: 'android-apt'
+
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        minSdkVersion 10
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+}
+
+def AAVersion = '3.3.2'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    apt "org.androidannotations:androidannotations:$AAVersion"
+    compile "org.androidannotations:androidannotations-api:$AAVersion"
+    compile 'com.google.code.gson:gson:2.5'
+    compile "org.springframework.android:spring-android-rest-template:2.0.0.M3"
+    compile "com.squareup.okhttp:okhttp:2.4.0"
+    compile "com.squareup.okhttp:okhttp-urlconnection:2.4.0"
+
+}
+
+apt {
+    arguments {
+        androidManifestFile variant.outputs[0]?.processResources?.manifestFile
+        // if you have multiple outputs (when using splits), you may want to have other index than 0
+
+        logLevel 'TRACE'
+        logAppenderConsole 'true'
+        library 'true'
+        // you should set your package name here if you are using different application IDs
+        // resourcePackageName "your.package.name"
+
+        // You can set optional annotation processing options here, like these commented options:
+        // logLevel 'INFO'
+        // logFile '/var/log/aa.log'
+    }
+}
