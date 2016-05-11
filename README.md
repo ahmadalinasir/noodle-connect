@@ -1,10 +1,6 @@
 **noodle-connect**
 ------------------
 
-
-----------
-
-
 An easy to use open source rest-client based upon **Façade design pattern** which is cooked using the best of ingredients
 
  - Android Annotations (https://github.com/excilys/androidannotations)
@@ -12,11 +8,9 @@ An easy to use open source rest-client based upon **Façade design pattern** whi
  - GSON (https://github.com/google/gson)
  - Spring Android Rest Template (http://projects.spring.io/spring-android)
 
-
 ----------
 
 **How it works ?**
---------------
 
 Step 1
 ------
@@ -67,9 +61,7 @@ For **GET** Request just use the following 1 line:
  5. `MultiValueMap<String,String>` map
  6. `boolean` cacheResponse
 
-
 ----------
-
 
 For **POST** Request follow the below mentioned steps:
 
