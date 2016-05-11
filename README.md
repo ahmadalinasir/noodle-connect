@@ -11,6 +11,7 @@ An easy to use open source rest-client based upon **Façade design pattern** whi
 ----------
 
 **How it works ?**
+------------------
 
 Step 1
 ------
