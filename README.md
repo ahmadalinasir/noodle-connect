@@ -73,6 +73,6 @@ For **POST** Request follow the below mentioned steps:
         map.add("last-name", lastName);
  
 
- 2. User the following 1 line for posting a request:
+ 2. Use the following one line for posting a request:
 
           restServiceClient.callService(this, url, SamplePOSTModel.class, "POST", map, true);
